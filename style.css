@@ -1,0 +1,68 @@
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+#navBar {
+  display: flex;
+  padding: 0%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#navBar img {
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+#navBar ul {
+  display: flex;
+  justify-content: space-between;
+  white-space: 10px;
+}
+#navBar a {
+  margin: 15px;
+  padding: 5px;
+}
+
+video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 0 -130px;
+}
+
+main {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.capa {
+  position: absolute;
+  top: 0;
+}
+
+form {
+  max-width: 450px;
+  display: grid;
+  justify-content: center;
+}
+
+form label {
+  text-align: left;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+form input {
+  margin: 0;
+}
