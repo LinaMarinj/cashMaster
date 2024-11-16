@@ -1,11 +1,8 @@
 body {
-  
   position: relative;
-  overflow: hidden;
 }
 
 header {
-  
   position: relative;
   z-index: 1;
   color: white;
@@ -19,10 +16,10 @@ header {
 }
 
 #navBar img {
-  height: 100px;
-  width: 100px;
+  height: 130px;
+  width: 130px;
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 920px;
 }
 
 #navBar ul {
@@ -43,13 +40,12 @@ video {
 }
 
 main {
-  
   position: absolute;
   top: 0;
   z-index: 0;
 }
 
-section {
+#seccionUno {
   position: absolute;
   top: 50%;
   left: 39%;
@@ -90,4 +86,10 @@ form label {
 
 form input {
   margin: 0;
+}
+
+#seccionDos {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 25px;
 }
