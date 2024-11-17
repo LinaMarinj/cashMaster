@@ -36,48 +36,61 @@ body {
   height: 60px;
 }
 
+main{
+  padding: 50px;
+}
+
 #seccionUno {
-  
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 4fr 1fr 2fr;
+  gap: 25px;
 }
 
 #seccionUnoDivUno {
-
-  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   padding: 20px;
-  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.123);
+  border: 1px solid rgba(0, 0, 0, 0.123);
 }
 
 #fotoUsuario1 {
   width: 60%;
   border-radius: 50%;
-  margin-bottom: 15%;
 }
 
 #editar {
-  width: 20%;
+  width: 15%;
+  margin: 10px;
 }
 
 #seccionUnoDivDos {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
-  width: 70%;
   background-color: white;
-  padding: 15px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.123);
+  border: 1px solid rgba(0, 0, 0, 0.123);
 }
 
-#iconos{
+#iconos {
   display: flex;
-  align-items: flex-end;  
+  align-items: flex-end;
 }
 
-#iconos div img{
+#iconos div img {
   display: block;
   margin: auto;
 }
@@ -92,7 +105,6 @@ body {
   margin-top: 10px;
 }
 
-
 .btn-ingresarInformacion:hover {
   background-color: #7125cbbd;
 }
@@ -102,6 +114,20 @@ body {
   margin-right: 1rem;
 }
 
-footer {
+#seccionDosDivUno {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-row-start: 2;
+  grid-row-end: 4;
   background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.123);
+  border: 1px solid rgba(0, 0, 0, 0.123);
+}
+
+#seccionDosDivUno p {
+  color: rgba(92, 89, 89, 0.616);
+  font-size: 1.2rem;
 }
