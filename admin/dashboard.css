@@ -44,7 +44,6 @@ body {
 
 #seccionUnoDivUno {
 
-  margin-top: 2%;
   width: 20%;
   background-color: white;
   padding: 20px;
@@ -58,7 +57,7 @@ body {
 }
 
 #editar {
-  width: 10%;
+  width: 20%;
 }
 
 #seccionUnoDivDos {
@@ -75,9 +74,12 @@ body {
 
 #iconos{
   display: flex;
-  
-  
-  
+  align-items: flex-end;  
+}
+
+#iconos div img{
+  display: block;
+  margin: auto;
 }
 
 .btn-ingresarInformacion {
@@ -87,6 +89,7 @@ body {
   border-radius: 10px;
   width: 150px;
   height: 40px;
+  margin-top: 10px;
 }
 
 

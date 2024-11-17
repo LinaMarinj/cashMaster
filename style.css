@@ -21,6 +21,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0px 20px;
+  flex-wrap: wrap;
 }
 
 #navBar div {
@@ -28,6 +29,7 @@ header {
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 #navBar img {
@@ -45,6 +47,7 @@ header {
   list-style: none;
   padding: 0;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #navBar a {
@@ -55,6 +58,7 @@ header {
   transition: background-color 0.3s;
   font-weight: 500;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -76,27 +80,35 @@ a#btnRegistrarme {
   border-radius: 15px;
 }
 
-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-  border: none;
-  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-main {
-  width: 100%;
-}
 
 #section-video {
+  overflow: hidden;
+  position: relative;
+  top: -90px;
   height: 100vh;
+}
+
+#section-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100vw;
+  object-fit: cover;
+  object-position: bottom center;
+  border: none;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
 }
 
 #section-video div#videoContainer {
   position: absolute;
   top: 0;
   z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #seccionUno {
@@ -104,6 +116,10 @@ main {
   top: 25%;
   right: 0px;
   z-index: 1;
+}
+
+main {
+  width: 100%;
 }
 
 div#slogan {
@@ -138,6 +154,7 @@ div#slogan span {
 #seccionUno #botones {
   margin-top: 50px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   gap: 25px;
@@ -185,7 +202,7 @@ form input {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 #seccionDos {
@@ -193,6 +210,7 @@ form input {
   grid-template-columns: 4fr 6fr;
   padding: 0 25px 100px 25px;
   align-items: center;
+  gap: 25px;
 }
 
 #seccionDos h2 {
@@ -212,8 +230,9 @@ form input {
 }
 
 #collage {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; /*fragmentos*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*fragmentos*/
   grid-gap: 25px;
   grid-template-rows: 1fr;
   align-items: center;
@@ -240,6 +259,7 @@ form input {
   background-color: #7125cbbd;
   color: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 150px 50px;
@@ -258,10 +278,15 @@ form input {
   border-radius: 20px;
   box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
   border: transparent;
+  width: 400px;
+  height: 400px;
+  min-width: 320px;
+  min-height: 320px;
 }
 
 #contactenos div section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 25px;
@@ -270,17 +295,148 @@ form input {
 
 #contactenos div#redesSociales {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 25px;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   background-color: white;
   color: #501e85;
   text-align: center;
   box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
   width: 100%;
   padding: 15px 0;
+}
+
+#navBarResponsive {
+  display: none;
+}
+
+.hidden {
+  display: none;
+  /* Clase para ocultar el menú */
+}
+
+@media (max-width: 1280px) {
+  #section-video div#videoContainer {
+    position: relative;
+  }
+
+  #seccionUno {
+    position: relative;
+    top: 0;
+    right: 0px;
+    z-index: 1;
+  }
+
+  #section-video {
+    height: auto;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #navBar {
+    display: none;
+  }
+
+  #navBarResponsive {
+    display: block;
+  }
+
+  #navBarResponsive #logo {
+    display: none;
+  }
+
+  #menu {
+    display: flex;
+    flex-direction: column;
+    /* Cambiar a columna en pantallas pequeñas */
+    position: absolute;
+    /* Ajusta según la altura del navbar */
+    left: 0;
+    background: white;
+    /* Fondo blanco para el menú */
+    width: 100%;
+    z-index: 100;
+    padding: 10px 10px;
+    border-radius: 4px;
+    /* Esquinas redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #501e85;
+    max-width: 180px;
+    gap: 10px;
+  }
+
+  a#btnRegistrarme {
+    padding: 5px 15px;
+  }
+
+  #menuToggle {
+    display: block;
+    /* Mostrar botón en pantallas pequeñas */
+  }
+
+  /* Ocultar menú por defecto en pantallas pequeñas */
+  #menu.hidden {
+    display: none;
+  }
+
+  #seccionUno {
+    position: relative;
+    top: 0;
+  }
+
+  #seccionUno #botones {
+    margin-top: 10px;
+  }
+
+  #section-video {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    top: -25px;
+  }
+
+  #section-video video {
+    position: absolute;
+    transform: scale(3);
+  }
+
+  #section-video div#videoContainer {
+    position: relative;
+  }
+
+  div#slogan p {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  div#slogan h1 {
+    font-size: 2rem;
+    margin-top: 5px;
+  }
+
+  #seccionDos {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    padding: 0 10px 25px 10px;
+  }
+
+  #seccionDos h2 {
+    font-size: 2rem;
+  }
+
+  #contactenos {
+    border-radius: 0;
+    padding: 25px 10px;
+  }
+
+  #contactenos h2 {
+    font-size: 2rem;
+  }
 }
