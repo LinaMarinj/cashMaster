@@ -1,130 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dashboard.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Dashboard</title>
-  </head>
 
-  <body>
-    <header>
-      <nav id="navBar">
-        <img id="logo" src="../img/logo.webp" alt="Logo Cash Master" />
-        <div>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#" id="">Salir</a></li>
-          </ul>
-          <img id="avatarUno" src="../img/usuario1.webp" alt="foto personal" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <header>
+    <nav id="navBar">
+      <img id="logo" src="../img/logo.webp" alt="Logo Cash Master" />
+      <div>
+        <ul>
+          <li><a href="#">Ingresos</a></li>
+          <li><a href="#">Gastos</a></li>
+          <li><a href="../index.html" id="">Salir</a></li>
+        </ul>
+        <img id="avatarUno" src="../img/usuario1.webp" alt="foto personal" />
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="seccionUno">
+      <div id="seccionUnoDivUno">
+        <img id="fotoUsuario1" src="../img/usuario1.webp" alt="foto personal" />
+
+        <h3>Hola, Juan Perez</h3>
+        <img id="editar" src="../img/editar.webp" alt="Editar perfil" />
+      </div>
+
+      <div id="seccionUnoDivDos">
+        <div class="w-full">
+
+          <h1>Acciones</h1>
+          <hr class="mt-4 w-full" />
         </div>
-      </nav>
-    </header>
-
-    <main>
-      <section id="seccionUno">
-        <div id="seccionUnoDivUno">
-          <img
-            id="fotoUsuario1"
-            src="../img/usuario1.webp"
-            alt="foto personal"
-          />
-
-          <h3>Hola, Andres Carmona</h3>
-          <img id="editar" src="../img/editar.webp" alt="Editar perfil" />
-        </div>
-
-        <div id="seccionUnoDivDos">
-          <section id="iconos">
-            <div>
-              <img src="../img/ingresa-dinero.webp" alt="" />
-              <button class="btn-ingresarInformacion">Nuevo Ingreso</button>
-            </div>
-            <div>
-              <img src="../img/gasto.webp" alt="" />
-              <button class="btn-ingresarInformacion">Nuevo Gasto</button>
-            </div>
-            <div>
-              <img src="../img/reporte.webp" alt="" />
-              <button class="btn-ingresarInformacion">Reporte Mensual</button>
-            </div>
-          </section>
-
-          <button class="btn-ingresarInformacion">Filtar</button>
-        </div>
-
-        <div id="seccionDosDivUno">
-          <img src="../img/cartera.webp" alt="" />
-          <p>Saldo Disponible</p>
-        </div>
-
-        <section id="tablaIngresos" class="flex flex-wrap">
-          <div class="w-full mt-10">
-            <section class="flex flex-wrap justify-between">
-              <h1 class="text-black text-3xl font-bold tracking-wide">
-                Ingresos Registrados
-              </h1>
-            </section>
-
-            <hr class="mt-4" />
+        <section id="iconos">
+          <div>
+            <img src="../img/ingresa-dinero.webp" alt="" />
+            <button class="btn-ingresarInformacion">Nuevo Ingreso</button>
           </div>
-
-          <div id="content">
-            <table
-              class="min-w-full divide-y divide-gray-200 bg-white border rounded mt-4"
-            >
-              <thead class="bg-white divide-y divide-gray-100">
-                <tr>
-                  <th
-                    class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider"
-                  >
-                    Gasto
-                  </th>
-
-                  <th
-                    class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider"
-                  >
-                    Frecuencia
-                  </th>
-
-                  <th
-                    class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider"
-                  >
-                    Valor
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody class="divide-y divide-gray-100 px-6">
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">salario</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">Mensual</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">$ 5.000.000</td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">Finca</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">Mensual</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">$ 700.000</td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">Tienda De Barrio</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">Mensual</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">$ 1.000.000</td>
-                </tr>
-              </tbody>
-            </table>
+          <div>
+            <img src="../img/gasto.webp" alt="" />
+            <button class="btn-ingresarInformacion">Nuevo Gasto</button>
+          </div>
+          <div>
+            <img src="../img/reporte.webp" alt="" />
+            <button class="btn-ingresarInformacion">Reporte Mensual</button>
           </div>
         </section>
+
+      </div>
+
+      <div id="seccionDosDivUno">
+        <img src="../img/cartera.webp" alt="" />
+        <p id="saldo">$2'000.000</p>
+        <p>Saldo disponible</p>
+      </div>
+
+      <section id="tablaIngresos" ">
+          <div class=" w-full">
+        <section class="flex flex-wrap justify-between">
+          <h2>
+            Ingresos Registrados
+          </h2>
+        </section>
+
+        <hr class="mt-4" />
+
+        </div>
+
+        <div id="content">
+          <table class="min-w-full divide-y divide-gray-200 bg-white border rounded mt-4">
+            <thead class="bg-white divide-y divide-gray-100">
+              <tr>
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  ID
+                </th>
+
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Monto
+                </th>
+
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Fecha De Ingreso
+                </th>
+
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Frecuencia
+                </th>
+                <th class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Categoria
+                </th>
+
+              </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-100 px-6">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">1</td>
+                <td class="flex items-center">
+                  <div class="px-6 py-4 whitespace-nowrap">$ 3.000.000</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">2024-10-11</td>
+                <td class="px-6 py-4 whitespace-nowrap">Mensual</td>
+                <td class="px-6 py-4 whitespace-nowrap">Salario</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">10</td>
+                <td class="flex items-center">
+                  <div class="px-6 py-4 whitespace-nowrap">$ 1.500.000</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">2024-10-05</td>
+                <td class="px-6 py-4 whitespace-nowrap">Anual</td>
+                <td class="px-6 py-4 whitespace-nowrap">Prima</td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">3</td>
+                <td class="flex items-center">
+                  <div class="px-6 py-4 whitespace-nowrap">$ 2.000.000</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">2024-10-04</td>
+                <td class="px-6 py-4 whitespace-nowrap">Mensual</td>
+                <td class="px-6 py-4 whitespace-nowrap">Inversión</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
-    </main>
-  </body>
+    </section>
+  </main>
+</body>
+
 </html>
