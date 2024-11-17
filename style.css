@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100%;
 }
 
 header {
@@ -76,7 +77,7 @@ a#btnRegistrarme {
 }
 
 video {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   object-fit: cover;
   object-position: center;
@@ -85,14 +86,17 @@ video {
 }
 
 main {
-  position: absolute;
-  top: 0;
-  z-index: 0;
   width: 100%;
 }
 
 #section-video {
-  position: relative;
+  height: 100vh;
+}
+
+#section-video div#videoContainer {
+  position: absolute;
+  top: 0;
+  z-index: 0;
 }
 
 #seccionUno {
@@ -163,22 +167,18 @@ form input {
 
 .video-overlay {
   border: none;
-  background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(52, 9, 98, 0) 0%,
       rgba(52, 9, 98, 0.1) 30%,
       rgba(52, 9, 98, 0.2) 50%,
       rgba(52, 9, 98, 0.1) 70%,
-      rgba(52, 9, 98, 0) 100%
-    ),
-    linear-gradient(
-      270deg,
+      rgba(52, 9, 98, 0) 100%),
+    linear-gradient(270deg,
       rgba(52, 9, 98, 0) 0%,
       rgba(52, 9, 98, 0.05) 25%,
       rgba(52, 9, 98, 0.15) 50%,
       rgba(52, 9, 98, 0.05) 75%,
-      rgba(52, 9, 98, 0) 100%
-    );
+      rgba(52, 9, 98, 0) 100%);
   background-blend-mode: multiply, multiply;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -191,26 +191,28 @@ form input {
 #seccionDos {
   display: grid;
   grid-template-columns: 4fr 6fr;
-  padding: 50px 25px;
+  padding: 0 25px 100px 25px;
   align-items: center;
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
 #seccionDos h2 {
-  font-size: x-large;
+  font-size: 2.5rem;
   justify-content: space-around;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #seccionDos p {
-  max-width: 450px; /* ancho máximo fijo */
-  overflow: hidden; /* Oculta el texto que sobrepasa el límite */
-  text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto que no cabe * */
+  max-width: 450px;
+  /* ancho máximo fijo */
+  overflow: hidden;
+  /* Oculta el texto que sobrepasa el límite */
+  text-overflow: ellipsis;
+  /* Añade puntos suspensivos al final del texto que no cabe * */
   text-align: justify;
 }
 
 #collage {
-  display: grid;
+  display: grid; 
   grid-template-columns: 1fr 1fr 1fr; /*fragmentos*/
   grid-gap: 25px;
   grid-template-rows: 1fr;
@@ -223,10 +225,62 @@ form input {
 }
 
 #collage img:hover {
-  transform: scale(1.10); /* La imagen se agranda ligeramente*/
+  transform: scale(1.10);
+  /* La imagen se agranda ligeramente*/
 }
 
 #collage img {
   border-radius: 3%;
   transition: all 0.5s;
+}
+
+#contactenos {
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  background-color: #7125cbbd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 50px;
+  font-size: 1.5rem;
+  border: none;
+}
+
+#contactenos h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+
+#contactenos iframe {
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+  border: transparent;
+}
+
+#contactenos div section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+}
+
+#contactenos div#redesSociales {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  color: #501e85;
+  text-align: center;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  padding: 15px 0;
 }
