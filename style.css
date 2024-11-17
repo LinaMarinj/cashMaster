@@ -31,8 +31,8 @@ header {
 }
 
 #navBar img {
-  height: 130px;
-  width: 130px;
+  height: 90px;
+  width: auto;
 }
 
 #navBar a#logo {
