@@ -49,7 +49,7 @@ main {
   display: grid;
   justify-content: center;
   grid-template-columns: 2fr 8fr;
-  grid-template-rows: 2fr 1fr 1fr 2fr;
+  grid-template-rows: minmax(auto, 250px) minmax(auto, 50px) minmax(auto, 150px) minmax(auto, 370px);
   gap: 25px;
 }
 
@@ -186,6 +186,13 @@ main {
   font-size: 1.5rem;
 }
 
+#grafico{
+  grid-row-start: 4;
+  grid-row-end: 5;
+  align-items: center;
+  display: flex;
+}
+
 /*
 0 HASTA 768 PX
 */
@@ -198,7 +205,8 @@ main {
     display: block;
   }
 
-  section#seccionUno > div {
+  section#seccionUno > div,
+  section#seccionUno > section {
     margin-bottom: 15px;
     flex-direction: column;
     text-align: center;
