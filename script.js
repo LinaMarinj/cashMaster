@@ -68,13 +68,13 @@ document.querySelector("#btnLogin").addEventListener("click", () => {
           title: "Inicio de sesión exitoso",
           icon: "success",
           preConfirm: () => {
-            window.location.href = "/admin/dashboard.html";
+            window.location.href = "admin/dashboard.html";
           },
         });
       } else {
         Swal.fire({
           title: "El correo y/o la contraseña son incorrectos ",
-          icon: "error"
+          icon: "error",
         });
       }
     }
@@ -112,7 +112,7 @@ document.querySelector("#btnRegistrarme").addEventListener("click", () => {
       'type="password"' +
       'id="contrasena"' +
       'name="contrasena"' +
-      'placeholder="***"' +
+      'placeholder="******"' +
       "/>" +
       "</form>",
     focusConfirm: false,
@@ -152,7 +152,10 @@ document.querySelector("#btnRegistrarme").addEventListener("click", () => {
       usuariosResgistrados[index] = objetoUsuario;
       index++;
 
-      Swal.fire("Usuario registrado ✔");
+      Swal.fire({
+        title: "Usuario registrado",
+        icon: "success"
+      });
     }
   });
 });
