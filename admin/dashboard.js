@@ -26,8 +26,8 @@ const options = {
     gradient: {
       opacityFrom: 0.55,
       opacityTo: 0,
-      shade: "#1C64F2",
-      gradientToColors: ["#1C64F2"],
+      shade: "#7125cbbd",
+      gradientToColors: ["#7125cbbd"],
     },
   },
   dataLabels: {
@@ -49,7 +49,7 @@ const options = {
     {
       name: "New users",
       data: [3000000, 1500000, 2000000],
-      color: "#1A56DB",
+      color: "#7125cbbd",
     },
   ],
   xaxis: {
