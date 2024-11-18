@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cash Master es una aplicación web para controlar tus finanzas personales. Gestiona ingresos, gastos y alcanza tus metas económicas."
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Cash Master</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Cash Master es una aplicación web para controlar tus finanzas personales. Gestiona ingresos, gastos y alcanza tus metas económicas." />
-  <meta name="robots" content="index, follow" />
-  <title>Cash Master</title>
+    <!-- Enlaces a estilos y scripts externos -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="img/billeteNegro.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="sweetalert2.js" defer></script>
+  </head>
 
-  <!-- Enlaces a estilos y scripts externos -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="img/billeteNegro.png" type="image/x-icon" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="sweetalert2.js" defer></script>
-</head>
+  <body>
+    <!-- Barra de navegación principal -->
+    <header>
+      <nav id="navBar">
+        <div>
+          <a id="logo" href="#" aria-label="Página principal">
+            <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
+          </a>
+          <ul>
+            <li><a href="#" aria-label="Ir a inicio">Inicio</a></li>
+            <li>
+              <a href="#" aria-label="Ir a la página de inicio de sesión"
+                >Quienes somos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contactenos"
+                aria-label="Ir a la página de inicio de sesión"
+                >Contactenos</a
+              >
+            </li>
+          </ul>
+        </div>
 
-<body>
-  <!-- Barra de navegación principal -->
-  <header>
-    <nav id="navBar">
-      <div>
-        <a id="logo" href="#" aria-label="Página principal">
-          <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
-        </a>
         <ul>
-          <li><a href="#" aria-label="Ir a inicio">Inicio</a></li>
           <li>
-            <a href="#" aria-label="Ir a la página de inicio de sesión">Quienes somos</a>
-          </li>
-          <li>
-            <a href="#contactenos" aria-label="Ir a la página de inicio de sesión">Contactenos</a>
-          </li>
-        </ul>
-      </div>
-
-      <ul>
-        <li>
-          <a href="#btnLogin" id="btnLogin" aria-label="Ir a la página de inicio de sesión">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="25"
-              height="25" viewBox="0 0 256 256" xml:space="preserve">
-              <defs></defs>
-              <g style="
+            <a
+              href="#btnLogin"
+              id="btnLogin"
+              aria-label="Ir a la página de inicio de sesión"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                width="25"
+                height="25"
+                viewBox="0 0 256 256"
+                xml:space="preserve"
+              >
+                <defs></defs>
+                <g
+                  style="
                     stroke: none;
                     stroke-width: 0;
                     stroke-dasharray: none;
@@ -51,10 +70,12 @@
                     fill: none;
                     fill-rule: nonzero;
                     opacity: 1;
-                  " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                <path
-                  d="M 79.635 73.696 C 86.104 65.901 90 55.898 90 45 C 90 20.187 69.813 0 45 0 C 20.187 0 0 20.187 0 45 c 0 10.898 3.896 20.901 10.365 28.696 c 0.105 0.161 0.227 0.315 0.383 0.445 c 0.002 0.002 0.005 0.003 0.007 0.005 C 19.015 83.837 31.298 90 45 90 c 13.702 0 25.985 -6.163 34.245 -15.854 c 0.003 -0.002 0.005 -0.003 0.008 -0.005 C 79.408 74.01 79.53 73.857 79.635 73.696 z M 45 4 c 22.607 0 41 18.393 41 41 c 0 9.169 -3.026 17.645 -8.132 24.482 c -6.081 -6.505 -13.876 -10.99 -22.402 -13.023 c 6.497 -3.669 10.901 -10.629 10.901 -18.609 c 0 -11.782 -9.585 -21.367 -21.367 -21.367 c -11.782 0 -21.367 9.585 -21.367 21.367 c 0 7.979 4.404 14.939 10.901 18.608 c -8.526 2.033 -16.321 6.518 -22.402 13.023 C 7.026 62.645 4 54.169 4 45 C 4 22.393 22.393 4 45 4 z M 45 55.217 c -9.576 0 -17.367 -7.791 -17.367 -17.367 S 35.424 20.482 45 20.482 s 17.367 7.791 17.367 17.367 S 54.576 55.217 45 55.217 z M 45 86 c -11.986 0 -22.787 -5.171 -30.29 -13.399 C 22.48 64.079 33.418 59.217 45 59.217 c 11.581 0 22.52 4.863 30.29 13.384 C 67.787 80.829 56.986 86 45 86 z"
-                  style="
+                  "
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+                >
+                  <path
+                    d="M 79.635 73.696 C 86.104 65.901 90 55.898 90 45 C 90 20.187 69.813 0 45 0 C 20.187 0 0 20.187 0 45 c 0 10.898 3.896 20.901 10.365 28.696 c 0.105 0.161 0.227 0.315 0.383 0.445 c 0.002 0.002 0.005 0.003 0.007 0.005 C 19.015 83.837 31.298 90 45 90 c 13.702 0 25.985 -6.163 34.245 -15.854 c 0.003 -0.002 0.005 -0.003 0.008 -0.005 C 79.408 74.01 79.53 73.857 79.635 73.696 z M 45 4 c 22.607 0 41 18.393 41 41 c 0 9.169 -3.026 17.645 -8.132 24.482 c -6.081 -6.505 -13.876 -10.99 -22.402 -13.023 c 6.497 -3.669 10.901 -10.629 10.901 -18.609 c 0 -11.782 -9.585 -21.367 -21.367 -21.367 c -11.782 0 -21.367 9.585 -21.367 21.367 c 0 7.979 4.404 14.939 10.901 18.608 c -8.526 2.033 -16.321 6.518 -22.402 13.023 C 7.026 62.645 4 54.169 4 45 C 4 22.393 22.393 4 45 4 z M 45 55.217 c -9.576 0 -17.367 -7.791 -17.367 -17.367 S 35.424 20.482 45 20.482 s 17.367 7.791 17.367 17.367 S 54.576 55.217 45 55.217 z M 45 86 c -11.986 0 -22.787 -5.171 -30.29 -13.399 C 22.48 64.079 33.418 59.217 45 59.217 c 11.581 0 22.52 4.863 30.29 13.384 C 67.787 80.829 56.986 86 45 86 z"
+                    style="
                       stroke: none;
                       stroke-width: 1;
                       stroke-dasharray: none;
@@ -64,72 +85,113 @@
                       fill: rgb(255, 255, 255);
                       fill-rule: nonzero;
                       opacity: 1;
-                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-              </g>
+                    "
+                    transform=" matrix(1 0 0 1 0 0) "
+                    stroke-linecap="round"
+                  />
+                </g>
+              </svg>
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="#btnRegistrarme"
+              id="btnRegistrarme"
+              aria-label="Ir a la página de registro"
+              >Registrarme</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <nav id="navBarResponsive">
+        <div>
+          <a id="logo" href="#" aria-label="Página principal">
+            <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
+          </a>
+          <button id="menuToggle" aria-label="Abrir menú">
+            <svg width="25" height="25" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
             </svg>
-            Login
-          </a>
-        </li>
-        <li>
-          <a href="#btnRegistrarme" id="btnRegistrarme" aria-label="Ir a la página de registro">Registrarme</a>
-        </li>
-      </ul>
-    </nav>
+          </button>
+        </div>
 
-    <nav id="navBarResponsive">
-      <div>
-        <a id="logo" href="#" aria-label="Página principal">
-          <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
-        </a>
-        <button id="menuToggle" aria-label="Abrir menú">
-          <svg width="25" height="25" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-          </svg>
-        </button>
-      </div>
+        <ul id="menu" class="hidden">
+          <li><a href="#" aria-label="Ir a inicio">Inicio</a></li>
+          <li>
+            <a href="#" aria-label="Ir a Quiénes somos">¿Quiénes somos?</a>
+          </li>
+          <li>
+            <a href="#contactenos" aria-label="Ir a la página de contacto"
+              >Contáctenos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#btnLogin"
+              id="btnLogin"
+              aria-label="Ir a la página de inicio de sesión"
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="#btnRegistrarme"
+              id="btnRegistrarme"
+              aria-label="Ir a la página de registro"
+              >Registrarme</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <ul id="menu" class="hidden">
-        <li><a href="#" aria-label="Ir a inicio">Inicio</a></li>
-        <li><a href="#" aria-label="Ir a Quiénes somos">¿Quiénes somos?</a></li>
-        <li><a href="#contactenos" aria-label="Ir a la página de contacto">Contáctenos</a></li>
-        <li>
-          <a href="#btnLogin" id="btnLogin" aria-label="Ir a la página de inicio de sesión">
-            Login
-          </a>
-        </li>
-        <li>
-          <a href="#btnRegistrarme" id="btnRegistrarme" aria-label="Ir a la página de registro">Registrarme</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Contenido principal de la página -->
-  <main>
-    <!-- Video de fondo con superposición -->
-    <section id="section-video">
-      <div id="videoContainer">
-        <video muted autoplay loop src="video/6266427-uhd_3840_2160_25fps.mp4" aria-label="Video de fondo"></video>
-        <div class="video-overlay"></div>
-        <section id="seccionUno">
-          <div id="slogan">
-            <p id="slogan-cat">CAMBIA TU VIDA</p>
-            <h1>
-              ¡Finanzas Controladas
-              <span>Metas Alcanzadas!</span>
-            </h1>
-            <p>
-              Te ayudamos a gestionar tus finanzas personales.
-              <br />
-              Administra tus ingresos, gastos y alcanza tus metas económicas.
-            </p>
-            <div id="botones">
-              <a href="#btnRegistrarme" id="btnRegistrarme" aria-label="Ir a la página de registro"
-                style="display: flex; gap: 10px">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                  width="25" height="25" viewBox="0 0 256 256" xml:space="preserve">
-                  <defs></defs>
-                  <g style="
+    <!-- Contenido principal de la página -->
+    <main>
+      <!-- Video de fondo con superposición -->
+      <section id="section-video">
+        <div id="videoContainer">
+          <video
+            muted
+            autoplay
+            loop
+            src="video/6266427-uhd_3840_2160_25fps.mp4"
+            aria-label="Video de fondo"
+          ></video>
+          <div class="video-overlay"></div>
+          <section id="seccionUno">
+            <div id="slogan">
+              <p id="slogan-cat">CAMBIA TU VIDA</p>
+              <h1>
+                ¡Finanzas Controladas
+                <span>Metas Alcanzadas!</span>
+              </h1>
+              <p>
+                Te ayudamos a gestionar tus finanzas personales.
+                <br />
+                Administra tus ingresos, gastos y alcanza tus metas económicas.
+              </p>
+              <div id="botones">
+                <a
+                  href="#btnRegistrarme"
+                  id="btnRegistrarme"
+                  aria-label="Ir a la página de registro"
+                  style="display: flex; gap: 10px"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 256 256"
+                    xml:space="preserve"
+                  >
+                    <defs></defs>
+                    <g
+                      style="
                         stroke: none;
                         stroke-width: 0;
                         stroke-dasharray: none;
@@ -139,10 +201,12 @@
                         fill: none;
                         fill-rule: nonzero;
                         opacity: 1;
-                      " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                    <path
-                      d="M 40.119 53.69 c -0.781 0.781 -0.781 2.047 0 2.828 c 0.391 0.391 0.902 0.586 1.414 0.586 s 1.024 -0.195 1.414 -0.586 l 10.103 -10.103 c 0.093 -0.093 0.177 -0.196 0.251 -0.306 c 0.033 -0.049 0.055 -0.102 0.083 -0.153 c 0.035 -0.063 0.073 -0.124 0.101 -0.192 c 0.027 -0.066 0.043 -0.134 0.063 -0.202 c 0.017 -0.057 0.039 -0.112 0.051 -0.171 c 0.051 -0.259 0.051 -0.525 0 -0.783 c -0.012 -0.059 -0.034 -0.114 -0.051 -0.171 c -0.02 -0.068 -0.036 -0.136 -0.063 -0.202 c -0.028 -0.067 -0.066 -0.128 -0.101 -0.192 c -0.028 -0.051 -0.05 -0.104 -0.083 -0.153 c -0.074 -0.11 -0.157 -0.213 -0.251 -0.306 L 42.947 33.482 c -0.78 -0.781 -2.048 -0.781 -2.828 0 c -0.781 0.781 -0.781 2.047 0 2.828 l 6.69 6.69 H 22.204 c -1.104 0 -2 0.896 -2 2 s 0.896 2 2 2 h 24.605 L 40.119 53.69 z"
-                      style="
+                      "
+                      transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+                    >
+                      <path
+                        d="M 40.119 53.69 c -0.781 0.781 -0.781 2.047 0 2.828 c 0.391 0.391 0.902 0.586 1.414 0.586 s 1.024 -0.195 1.414 -0.586 l 10.103 -10.103 c 0.093 -0.093 0.177 -0.196 0.251 -0.306 c 0.033 -0.049 0.055 -0.102 0.083 -0.153 c 0.035 -0.063 0.073 -0.124 0.101 -0.192 c 0.027 -0.066 0.043 -0.134 0.063 -0.202 c 0.017 -0.057 0.039 -0.112 0.051 -0.171 c 0.051 -0.259 0.051 -0.525 0 -0.783 c -0.012 -0.059 -0.034 -0.114 -0.051 -0.171 c -0.02 -0.068 -0.036 -0.136 -0.063 -0.202 c -0.028 -0.067 -0.066 -0.128 -0.101 -0.192 c -0.028 -0.051 -0.05 -0.104 -0.083 -0.153 c -0.074 -0.11 -0.157 -0.213 -0.251 -0.306 L 42.947 33.482 c -0.78 -0.781 -2.048 -0.781 -2.828 0 c -0.781 0.781 -0.781 2.047 0 2.828 l 6.69 6.69 H 22.204 c -1.104 0 -2 0.896 -2 2 s 0.896 2 2 2 h 24.605 L 40.119 53.69 z"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -152,10 +216,13 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <path
-                      d="M 65.796 22.062 H 28.613 c -1.104 0 -2 0.896 -2 2 v 8.602 c 0 1.104 0.896 2 2 2 s 2 -0.896 2 -2 v -6.602 h 33.183 v 37.875 H 30.613 v -6.602 c 0 -1.104 -0.896 -2 -2 -2 s -2 0.896 -2 2 v 8.602 c 0 1.104 0.896 2 2 2 h 37.183 c 1.104 0 2 -0.896 2 -2 V 24.062 C 67.796 22.958 66.9 22.062 65.796 22.062 z"
-                      style="
+                        "
+                        transform=" matrix(1 0 0 1 0 0) "
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M 65.796 22.062 H 28.613 c -1.104 0 -2 0.896 -2 2 v 8.602 c 0 1.104 0.896 2 2 2 s 2 -0.896 2 -2 v -6.602 h 33.183 v 37.875 H 30.613 v -6.602 c 0 -1.104 -0.896 -2 -2 -2 s -2 0.896 -2 2 v 8.602 c 0 1.104 0.896 2 2 2 h 37.183 c 1.104 0 2 -0.896 2 -2 V 24.062 C 67.796 22.958 66.9 22.062 65.796 22.062 z"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -165,10 +232,13 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <path
-                      d="M 45 0 C 20.187 0 0 20.187 0 45 c 0 24.813 20.187 45 45 45 c 24.813 0 45 -20.187 45 -45 C 90 20.187 69.813 0 45 0 z M 45 86 C 22.393 86 4 67.607 4 45 S 22.393 4 45 4 s 41 18.393 41 41 S 67.607 86 45 86 z"
-                      style="
+                        "
+                        transform=" matrix(1 0 0 1 0 0) "
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M 45 0 C 20.187 0 0 20.187 0 45 c 0 24.813 20.187 45 45 45 c 24.813 0 45 -20.187 45 -45 C 90 20.187 69.813 0 45 0 z M 45 86 C 22.393 86 4 67.607 4 45 S 22.393 4 45 4 s 41 18.393 41 41 S 67.607 86 45 86 z"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -178,81 +248,112 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                  </g>
-                </svg>
-                Registrarme
-              </a>
+                        "
+                        transform=" matrix(1 0 0 1 0 0) "
+                        stroke-linecap="round"
+                      />
+                    </g>
+                  </svg>
+                  Registrarme
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </section>
+          </section>
+        </div>
+      </section>
 
-    <section id="seccionDos">
-      <div>
-        <h2>¿Quiénes somos?</h2>
-        <br />
-        <br />
-        <p>
-          Somos una aplicación web que te ayudará a tener el control total de
-          tus finanzas personales. <br><br>Nuestro software está diseñado para
-          ofrecerte una visión clara y detallada de tus ingresos y gastos,
-          haciendo que gestionar tu dinero sea más sencillo y eficiente. <br><br>
-          Creemos que el éxito financiero comienza con el conocimiento, y
-          estamos comprometidos a brindarte las herramientas necesarias para
-          que alcances tus metas económicas.
-        </p>
-      </div>
+      <section id="seccionDos">
+        <div>
+          <h2>¿Quiénes somos?</h2>
+          <br />
+          <br />
+          <p>
+            Somos una aplicación web que te ayudará a tener el control total de
+            tus finanzas personales. <br /><br />Nuestro software está diseñado
+            para ofrecerte una visión clara y detallada de tus ingresos y
+            gastos, haciendo que gestionar tu dinero sea más sencillo y
+            eficiente. <br /><br />
+            Creemos que el éxito financiero comienza con el conocimiento, y
+            estamos comprometidos a brindarte las herramientas necesarias para
+            que alcances tus metas económicas.
+          </p>
+        </div>
 
-      <div>
-        <section id="collage">
-          <div><img src="img/1.webp" alt="Mujer" /></div>
-          <div id="imagenesCompartidas">
-            <img src="img/4.webp" alt="" />
-            <img src="img/5.webp" alt="" />
-          </div>
-          <div><img src="img/3.webp" alt="" /></div>
-        </section>
-      </div>
-    </section>
+        <div>
+          <section id="collage">
+            <div><img src="img/1.webp" alt="Mujer" /></div>
+            <div id="imagenesCompartidas">
+              <img src="img/4.webp" alt="" />
+              <img src="img/5.webp" alt="" />
+            </div>
+            <div><img src="img/3.webp" alt="" /></div>
+          </section>
+        </div>
+      </section>
 
-    <section id="contactenos">
-      <div>
-        <h2>¡Visitanos!</h2>
-        <section>
-          <div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4464717182477!2d-75.55340152404852!3d6.336167193653475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442f11a205b239%3A0xa3974aa926dbfac1!2sCesde%20sede%20norte!5e0!3m2!1ses-419!2sco!4v1731810542858!5m2!1ses-419!2sco"
-              style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div>
-            <p>cashmaster@gmail.com</p>
-            <p>PBX: (+57) 3046781557</p>
-            <p>Visitanos en nuestras redes sociales</p>
-            <div id="redesSociales">
-              <a class="m-2" href="#" target="_blank">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="22"
-                  width="22" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
-                  </path>
-                </svg>
-              </a>
-              <a class="m-2" href="#">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24"
-                  height="22" width="22" xmlns="http://www.w3.org/2000/svg">
-                  <title></title>
-                  <path
-                    d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z">
-                  </path>
-                </svg>
-              </a>
-              <a class="m-2" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                  width="22" height="22" viewBox="0 0 256 256" xml:space="preserve">
-                  <defs></defs>
-                  <g style="
+      <section id="contactenos">
+        <div>
+          <h2>¡Visitanos!</h2>
+          <section>
+            <div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4464717182477!2d-75.55340152404852!3d6.336167193653475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442f11a205b239%3A0xa3974aa926dbfac1!2sCesde%20sede%20norte!5e0!3m2!1ses-419!2sco!4v1731810542858!5m2!1ses-419!2sco"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div>
+              <p>cashmaster@gmail.com</p>
+              <p>PBX: (+57) 3046781557</p>
+              <p>Visitanos en nuestras redes sociales</p>
+              <div id="redesSociales">
+                <a class="m-2" href="#" target="_blank">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 448 512"
+                    height="22"
+                    width="22"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+                    ></path>
+                  </svg>
+                </a>
+                <a class="m-2" href="#">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    height="22"
+                    width="22"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title></title>
+                    <path
+                      d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z"
+                    ></path>
+                  </svg>
+                </a>
+                <a class="m-2" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 256 256"
+                    xml:space="preserve"
+                  >
+                    <defs></defs>
+                    <g
+                      style="
                         stroke: none;
                         stroke-width: 0;
                         stroke-dasharray: none;
@@ -262,10 +363,12 @@
                         fill: none;
                         fill-rule: nonzero;
                         opacity: 1;
-                      " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                    <path
-                      d="M 62.263 90 H 27.738 C 12.443 90 0 77.557 0 62.263 V 27.738 C 0 12.443 12.443 0 27.738 0 h 34.525 C 77.557 0 90 12.443 90 27.738 v 34.525 C 90 77.557 77.557 90 62.263 90 z M 27.738 7 C 16.303 7 7 16.303 7 27.738 v 34.525 C 7 73.697 16.303 83 27.738 83 h 34.525 C 73.697 83 83 73.697 83 62.263 V 27.738 C 83 16.303 73.697 7 62.263 7 H 27.738 z"
-                      style="
+                      "
+                      transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+                    >
+                      <path
+                        d="M 62.263 90 H 27.738 C 12.443 90 0 77.557 0 62.263 V 27.738 C 0 12.443 12.443 0 27.738 0 h 34.525 C 77.557 0 90 12.443 90 27.738 v 34.525 C 90 77.557 77.557 90 62.263 90 z M 27.738 7 C 16.303 7 7 16.303 7 27.738 v 34.525 C 7 73.697 16.303 83 27.738 83 h 34.525 C 73.697 83 83 73.697 83 62.263 V 27.738 C 83 16.303 73.697 7 62.263 7 H 27.738 z"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -275,10 +378,13 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <path
-                      d="M 45.255 70.47 c -13.904 0 -25.215 -11.312 -25.215 -25.215 S 31.352 20.04 45.255 20.04 s 25.215 11.312 25.215 25.215 S 59.159 70.47 45.255 70.47 z M 45.255 27.04 c -10.044 0 -18.215 8.171 -18.215 18.215 c 0 10.044 8.171 18.215 18.215 18.215 c 10.044 0 18.215 -8.171 18.215 -18.215 C 63.471 35.211 55.3 27.04 45.255 27.04 z"
-                      style="
+                        "
+                        transform=" matrix(1 0 0 1 0 0) "
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M 45.255 70.47 c -13.904 0 -25.215 -11.312 -25.215 -25.215 S 31.352 20.04 45.255 20.04 s 25.215 11.312 25.215 25.215 S 59.159 70.47 45.255 70.47 z M 45.255 27.04 c -10.044 0 -18.215 8.171 -18.215 18.215 c 0 10.044 8.171 18.215 18.215 18.215 c 10.044 0 18.215 -8.171 18.215 -18.215 C 63.471 35.211 55.3 27.04 45.255 27.04 z"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -288,8 +394,15 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <circle cx="70.557" cy="19.936999999999998" r="4.897" style="
+                        "
+                        transform=" matrix(1 0 0 1 0 0) "
+                        stroke-linecap="round"
+                      />
+                      <circle
+                        cx="70.557"
+                        cy="19.936999999999998"
+                        r="4.897"
+                        style="
                           stroke: none;
                           stroke-width: 1;
                           stroke-dasharray: none;
@@ -299,27 +412,30 @@
                           fill: rgb(255, 255, 255);
                           fill-rule: nonzero;
                           opacity: 1;
-                        " transform="  matrix(1 0 0 1 0 0) " />
-                  </g>
-                </svg>
-              </a>
+                        "
+                        transform="  matrix(1 0 0 1 0 0) "
+                      />
+                    </g>
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
+          </section>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>Cash Master ©Todos los derechos reservados 2024</p>
-  </footer>
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('menuToggle').addEventListener('click', function () {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('hidden'); // Alterna la clase 'hidden' para mostrar/ocultar el menú
-    });
-  </script>
-</body>
-
+    <footer>
+      <p>Cash Master ©Todos los derechos reservados 2024</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("menu");
+          menu.classList.toggle("hidden"); // Alterna la clase 'hidden' para mostrar/ocultar el menú
+        });
+    </script>
+  </body>
 </html>
