@@ -4,7 +4,7 @@
 
 const options = {
     chart: {
-      height: "200",
+      height: "100%",
       maxWidth: "100%",
       type: "area",
       fontFamily: "Inter, sans-serif",
