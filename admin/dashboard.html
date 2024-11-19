@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="dashboard.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
 
     <title>Dashboard</title>
   </head>
@@ -50,11 +53,11 @@
             </div>
             <div>
               <img src="../img/gasto.webp" alt="" />
-              <button class="btn-ingresarInformacion">Nuevo Gasto</button>
+              <button id="btnNuevoGasto" class="btn-ingresarInformacion">Nuevo Gasto</button>
             </div>
             <div>
               <img src="../img/reporte.webp" alt="" />
-              <button class="btn-ingresarInformacion">Reporte Mensual</button>
+              <button id="btnGenerarReporte" class="btn-ingresarInformacion">Reporte Mensual</button>
             </div>
           </section>
         </div>

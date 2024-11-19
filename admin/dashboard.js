@@ -1,6 +1,6 @@
-/**
- * este es el bloque de la estadistica
- */
+
+ //este es el bloque de la estadistica
+
 
 const options = {
   chart: {
@@ -53,15 +53,7 @@ const options = {
     },
   ],
   xaxis: {
-    categories: [
-      "01 February",
-      "02 February",
-      "03 February",
-      "04 February",
-      "05 February",
-      "06 February",
-      "07 February",
-    ],
+    categories: ["2024-10-11", "2024-10-05", "2024-10-04"],
     labels: {
       show: false,
     },
@@ -84,3 +76,147 @@ if (
   const chart = new ApexCharts(document.getElementById("area-chart"), options);
   chart.render();
 }
+
+let nuevoGasto;
+let gastosTotales = []; // Inicializamos el array de gastos
+
+let objetoUsuario = {};
+let indexGastos = 0; // contador
+
+document.querySelector("#btnNuevoGasto").addEventListener("click", () => {
+  Swal.fire({
+    title: "Nuevo Gasto",
+    html:
+      '<form action="">' +
+      '<label for="idGasto">ID Gasto:</label>' +
+      '<input class="swal2-input"' +
+      'type="text"' +
+      'id="idGasto"' +
+      'name="idGasto"' +
+      '<label for="montoGasto">Monto Gasto:</label>' +
+      '<input class="swal2-input"' +
+      'type="number"' +
+      'id="montoGasto"' +
+      'name="montoGasto"' +
+      'placeholder="500"' +
+      "/>" +
+      '<label for="fechaGasto">Fecha Gasto:</label>' +
+      '<input class="swal2-input"' +
+      'type="date"' +
+      'id="fechaGasto"' +
+      'name="fechaGasto"' +
+      "/>" +
+      '<label for="categoria">Categoría:</label>' +
+      '<input class="swal2-input"' +
+      'type="text"' +
+      'id="categoria"' +
+      'name="ategoria"' +
+      "</form>",
+
+    focusConfirm: false,
+    confirmButtonText: "Registrar Gasto",
+    preConfirm: () => {
+      const idGasto = document.getElementById("idGasto").value;
+      const montoGasto = document.getElementById("montoGasto").value;
+      const fechaGasto = document.getElementById("fechaGasto").value;
+      const categoria = document.getElementById("categoria").value;
+
+      // Verifica que los valores no estén vacíos
+      if (!idGasto || !montoGasto || !fechaGasto || !categoria) {
+        Swal.showValidationMessage("Por favor completa todos los campos");
+        return false;
+      }
+
+      return {
+        idGasto,
+        montoGasto,
+        fechaGasto,
+        categoria,
+      };
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const idGasto = result.value.idGasto;
+      const montoGasto = result.value.montoGasto;
+      const fechaGasto = result.value.fechaGasto;
+      const categoria = result.value.categoria;
+
+      // Crear objeto de gasto
+      const objetoGasto = {
+        idGasto,
+        montoGasto,
+        fechaGasto,
+        categoria,
+      };
+
+      // Guardar el objeto en el arreglo simulando una base de datos
+      gastosTotales.push(objetoGasto);
+
+      // Mostrar el contenido en la consola para verificar
+      console.log("Gastos Totales:", gastosTotales);
+
+      // Incrementar contador de gastos
+      indexGastos++;
+
+      Swal.fire({
+        title: "Gasto Registrado",
+        icon: "success",
+      });
+    }
+  });
+});
+
+// Se crea ventana emergente
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  },
+});
+
+// evento de clic al botón de reporte
+document.getElementById("btnGenerarReporte").addEventListener("click", () => {
+  // Mostrar el Toast
+  Toast.fire({
+    icon: "success",
+    title: "Preparando Reporte",
+  });
+
+  // abrir el Swal de "Balance Mensual"
+  setTimeout(() => {
+    Swal.fire({
+      title: "Balance Mensual",
+      html:
+        '<div id="modalContent">' +
+        "<p>Tus ingresos mensuales totales son: </p>" +
+        "<p>Tus gastos mensuales totales son: </p>" +
+        "<p>¡Tus finanzas están muy bien! ¡FELICIDADES!</p>" +
+        "</div>" +
+        '<button id="btnDescargarPDF" class="swal2-confirm swal2-styled">Descargar PDF</button>' + // Botón para descargar PDF
+        '<button id="btnAtras" class="swal2-cancel swal2-styled" style="margin-left: 10px;">Atrás</button>', // Botón "Atrás"
+      showConfirmButton: false, // Deshabilitar el botón de confirmación
+      didOpen: () => {
+        // Agregar el evento de clic para descargar el PDF
+        document
+          .getElementById("btnDescargarPDF")
+          .addEventListener("click", () => {
+            // Seleccionar el contenido que se convertirá en PDF
+            const modalContent = document.getElementById("modalContent");
+
+            // Usar html2pdf para generar el PDF
+            html2pdf().from(modalContent).save("Balance_Mensual.pdf");
+          });
+
+        // Agregar el evento de clic para el botón "Atrás" que cerrará el modal
+        document.getElementById("btnAtras").addEventListener("click", () => {
+          Swal.close(); // Cerrar la alerta de SweetAlert2
+        });
+      },
+    });
+  }, 3000); // Mismo tiempo que el timer del Toast
+});
