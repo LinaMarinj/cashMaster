@@ -170,7 +170,7 @@ main {
   margin-top: 25px;
 }
 
-#seccionIngresos {
+#seccionGastos {
   grid-row-start: 3;
   grid-row-end: 5;
   background-color: white;
@@ -180,7 +180,7 @@ main {
   border: none;
 }
 
-#seccionIngresos h2 {
+#seccionGastos h2 {
   width: 100%;
   font-weight: normal;
   font-size: 1.5rem;

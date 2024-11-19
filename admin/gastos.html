@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="gastos.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <title>Gastos</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+    <title>Dashboard</title>
   </head>
 
   <body>
@@ -15,8 +19,8 @@
         <img id="logo" src="../img/logo.webp" alt="Logo Cash Master" />
         <div>
           <ul>
-            <li><a href="dashboard.html">Ingresos</a></li>
-            <li><a href="#">Gastos</a></li>
+            <li><a href="../admin/dashboard.html">Ingresos</a></li>
+            <li><a href="../admin/gastos.html">Gastos</a></li>
             <li><a href="../index.html" id="">Salir</a></li>
           </ul>
           <img id="avatarUno" src="../img/usuario1.webp" alt="foto personal" />
@@ -39,21 +43,21 @@
 
         <div id="seccionUnoDivDos">
           <div class="w-full">
-            <h1>Acciones</h1>
+            <h1>Acciones Rápidas</h1>
             <hr class="mt-4 w-full" />
           </div>
-          <section id="iconos">
+          <section class="justify-center" id="iconos">
             <div>
               <img src="../img/ingresa-dinero.webp" alt="" />
               <button class="btn-ingresarInformacion">Nuevo Ingreso</button>
             </div>
             <div>
               <img src="../img/gasto.webp" alt="" />
-              <button class="btn-ingresarInformacion">Nuevo Gasto</button>
+              <button id="btnNuevoGasto" class="btn-ingresarInformacion">Nuevo Gasto</button>
             </div>
             <div>
               <img src="../img/reporte.webp" alt="" />
-              <button class="btn-ingresarInformacion">Reporte Mensual</button>
+              <button id="btnGenerarReporte" class="btn-ingresarInformacion">Reporte Mensual</button>
             </div>
           </section>
         </div>
@@ -64,7 +68,7 @@
           <p>Saldo disponible</p>
         </div>
 
-        <section id="seccionIngresos">
+        <section id="seccionGastos">
           <div class="w-full">
             <section class="flex flex-wrap justify-between">
               <h2>Gastos Registrados</h2>
@@ -74,7 +78,7 @@
           </div>
 
           <div id="content">
-            <table
+            <table id="tablaGastos"
               class="min-w-full divide-y divide-gray-200 bg-white border rounded mt-4"
             >
               <thead class="bg-white divide-y divide-gray-100">
@@ -100,46 +104,13 @@
                   <th
                     class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider"
                   >
-                    Frecuencia
-                  </th>
-                  <th
-                    class="px-6 py-3 text-left text-sm font-bold text-gray-700 uppercase tracking-wider"
-                  >
                     Categoria
                   </th>
                 </tr>
               </thead>
 
               <tbody class="divide-y divide-gray-100 px-6">
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">1</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">$ 600.000</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">2024-10-15</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Mensual</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Alimentación</td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">4</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">$ 300.000</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">2024-10-11</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Anual</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Entetenimiento</td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">2</td>
-                  <td class="flex items-center">
-                    <div class="px-6 py-4 whitespace-nowrap">$ 900.000</div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">2024-10-13</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Mensual</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Alquiler</td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
