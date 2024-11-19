@@ -120,7 +120,7 @@ document.querySelector("#btnNuevoGasto").addEventListener("click", () => {
       'type="number"' +
       'id="montoGasto"' +
       'name="montoGasto"' +
-      'placeholder="500"' +
+      'placeholder="500000"' +
       "/>" +
       '<label for="fechaGasto">Fecha Gasto:</label>' +
       '<input class="swal2-input"' +
@@ -231,16 +231,20 @@ document.getElementById("btnGenerarReporte").addEventListener("click", () => {
 
   // abrir el Swal de "Balance Mensual"
   setTimeout(() => {
+    let totalGastos = 0;
+    gastosTotales.forEach((gasto) => 
+    totalGastos += parseFloat(gasto.montoGasto));
+    
     Swal.fire({
       title: "Balance Mensual",
       html:
         '<div id="modalContent">' +
         "<p>Tus ingresos mensuales totales son: </p>" +
-        "<p>Tus gastos mensuales totales son: </p>" +
+        "<p>Tus gastos mensuales totales son: </p>" + totalGastos + 
         "<p>¡Tus finanzas están muy bien! ¡FELICIDADES!</p>" +
         "</div>" +
         '<button id="btnDescargarPDF" class="swal2-confirm swal2-styled">Descargar PDF</button>' + // Botón para descargar PDF
-        '<button id="btnAtras" class="swal2-cancel swal2-styled" style="margin-left: 10px;">Atrás</button>', // Botón "Atrás"
+        '<button id="btnAtras" class="swal2-cancel swal2-styled" style="margin-left: 10px;">Atrás</button>',
       showConfirmButton: false, // Deshabilitar el botón de confirmación
       didOpen: () => {
         // Agregar el evento de clic para descargar el PDF
@@ -262,3 +266,5 @@ document.getElementById("btnGenerarReporte").addEventListener("click", () => {
     });
   }, 3000); // Mismo tiempo que el timer del Toast
 });
+
+
