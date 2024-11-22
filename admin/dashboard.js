@@ -75,7 +75,9 @@ if (
 ) {
   const chart = new ApexCharts(document.getElementById("area-chart"), options);
   chart.render();
-}
+}//final de la estadistica
+
+
 
 let nuevoGasto;
 let gastosTotales = []; // Inicializamos el array de gastos
@@ -110,7 +112,7 @@ document.querySelector("#btnNuevoGasto").addEventListener("click", () => {
       '<input class="swal2-input"' +
       'type="text"' +
       'id="categoria"' +
-      'name="ategoria"' +
+      'name="categoria"' +
       "</form>",
 
     focusConfirm: false,
@@ -212,7 +214,7 @@ document.getElementById("btnGenerarReporte").addEventListener("click", () => {
             html2pdf().from(modalContent).save("Balance_Mensual.pdf");
           });
 
-        // Agregar el evento de clic para el botón "Atrás" que cerrará el modal
+        
         document.getElementById("btnAtras").addEventListener("click", () => {
           Swal.close(); // Cerrar la alerta de SweetAlert2
         });

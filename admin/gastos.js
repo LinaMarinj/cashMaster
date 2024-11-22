@@ -143,7 +143,7 @@ document.querySelector("#btnNuevoGasto").addEventListener("click", () => {
       const fechaGasto = document.getElementById("fechaGasto").value;
       const categoria = document.getElementById("categoria").value;
 
-      // Verifica que los valores no estén vacíos
+     
       if (!idGasto || !montoGasto || !fechaGasto || !categoria) {
         Swal.showValidationMessage("Por favor completa todos los campos");
         return false;

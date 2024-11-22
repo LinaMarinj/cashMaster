@@ -28,7 +28,7 @@ document.querySelectorAll(".btnLogin").forEach((boton) => {
         'type="password"' +
         'id="contrasena"' +
         'name="contrasena"' +
-        'placeholder="***"' +
+        'placeholder="******"' +
         "/>" +
         "</form>",
       focusConfirm: false,
