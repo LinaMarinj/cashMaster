@@ -253,8 +253,10 @@ function htmlModalGasto() {
             <select class="swal2-input" name="categoria" id="categoria" style="margin-bottom: 25px !important;border: 1px solid hsl(0, 0%, 85%); border-radius: .1875em;">
                 <option value="" disabled selected>Selecciona una categoría</option>
                 <option value="Arriendo">Arriendo</option>
-                <option value="Alimentacion">Alimentacion</option>
+                <option value="Alimentacion">Alimentación</option>
                 <option value="Transporte">Transporte</option>
+                <option value="Educación>Educación</option>
+                 <option value="Entretenimiento">Entretenimiento</option>
                 <option value="Gymnasio">Gymnasio</option>
                 <option value="Otro...">Otro...</option>
             </select>
