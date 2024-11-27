@@ -13,10 +13,10 @@ let index = 1;
 function htmlModalLogin() {
   return `
     <form action="">
-      <label for="correo">Correo electronico:</label>
+      <label for="correo">Correo electrónico:</label>
       <input class="swal2-input" type="text" id="correo" name="correo" placeholder="tucorreo@gmail.com" />
       <label for="contrasena">Contraseña:</label>
-      <input class="swal2-input" type="password" id="contrasena" name="contrasena" placeholder="******" />
+      <input class="swal2-input" type="password" id="contrasena" name="contrasena" placeholder="**********" />
     </form>
   `;
 }
@@ -91,7 +91,7 @@ function htmlModalRegistro() {
       <input class="swal2-input" type="text" id="nombre" name="nombre" placeholder="Camila" />
       <label for="apellido">Apellido:</label>
       <input class="swal2-input" type="apellido" id="apellido" name="apellido" placeholder="Perez" />
-      <label for="correo">Correo electronico:</label>
+      <label for="correo">Correo electrónico:</label>
       <input class="swal2-input" type="text" id="correo" name="correo" placeholder="tucorreo@gmail.com" />
       <label for="contrasena">Contraseña:</label>
       <input class="swal2-input" type="password" id="contrasena" name="contrasena" placeholder="********" />

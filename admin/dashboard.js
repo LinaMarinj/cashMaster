@@ -257,7 +257,7 @@ function htmlModalGasto() {
                 <option value="Transporte">Transporte</option>
                 <option value="Educación>Educación</option>
                  <option value="Entretenimiento">Entretenimiento</option>
-                <option value="Gymnasio">Gymnasio</option>
+                <option value="Gymnasio">Gimnasio</option>
                 <option value="Otro...">Otro...</option>
             </select>
         </form>
