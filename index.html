@@ -1,45 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cash Master es una aplicación web para controlar tus finanzas personales. Gestiona ingresos, gastos y alcanza tus metas económicas."
+    />
+    <meta name="robots" content="index, follow" />
     <title>Cash Master</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="img/billeteNegro.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="sweetalert2.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="img/billeteNegro.png" type="image/x-icon">
+    <script src="sweetalert2.js" defer></script>
   </head>
+
   <body>
-    <header id="">
+    <header>
       <nav id="navBar">
-        <img src="img/logo.webp" alt="Logo" class="logo" />
+        <div>
+          <a id="logo" href="#" aria-label="Página principal">
+            <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
+          </a>
+          <ul>
+            <li><a href="index.html" aria-label="Ir a inicio">Inicio</a></li>
+            <li>
+              <a
+                href="#seccionDos"
+                aria-label="Ir a la página de inicio de sesión"
+                >Quiénes somos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contactenos"
+                aria-label="Ir a la página de inicio de sesión"
+                >Contáctenos</a
+              >
+            </li>
+          </ul>
+        </div>
+
         <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#" id="btnLogin">Login</a></li>
-          <li><a href="#" id="btnRegistrarme">Registrarme</a></li>
+          <li>
+            <a
+              href="#btnLogin"
+              id="btnLogin"
+              class="btnLogin"
+              aria-label="Ir a la página de inicio de sesión"
+            >
+              <img src="img/iconos/login.svg" alt="icono login" />
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="#btnRegistrarme"
+              id="btnRegistrarme"
+              class="btnRegistrarme"
+              aria-label="Ir a la página de registro"
+              >Registrarme</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <nav id="navBarResponsive">
+        <div>
+          <a id="logo" href="#" aria-label="Página principal">
+            <img src="img/logo.webp" alt="Logo de Cash Master" class="logo" />
+          </a>
+          <button id="menuToggle" aria-label="Abrir menú">
+            <svg width="25" height="25" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+            </svg>
+          </button>
+        </div>
+
+        <ul id="menu" class="hidden">
+          <li><a href="index.html" aria-label="Ir a inicio">Inicio</a></li>
+          <li>
+            <a href="#seccionDos" aria-label="Ir a Quiénes somos"
+              >¿Quiénes somos?</a
+            >
+          </li>
+          <li>
+            <a href="#contactenos" aria-label="Ir a la página de contacto"
+              >Contáctenos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#btnLogin"
+              id="btnLogin"
+              class="btnLogin"
+              aria-label="Ir a la página de inicio de sesión"
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="#btnRegistrarme"
+              id="btnRegistrarme"
+              class="btnRegistrarme"
+              aria-label="Ir a la página de registro"
+              >Registrarme</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <video
-        muted
-        autoplay
-        loop
-        src="video/6266427-uhd_3840_2160_25fps.mp4"
-      ></video>
-      <section>
-        <div id="slogan">
-          <h1>
-            ¡DOMINA TUS CUENTAS!
-            <span
-              ><br />
-              y el éxito te seguirá</span
-            >
-          </h1>
+      <!-- Video de fondo con superposición -->
+      <section id="section-video">
+        <div id="videoContainer">
+          <video
+            muted
+            autoplay
+            loop
+            src="video/6266427-uhd_3840_2160_25fps.mp4"
+            aria-label="Video de fondo"
+          ></video>
+          <div class="video-overlay"></div>
+          <section id="seccionUno">
+            <div id="slogan">
+              <p id="slogan-cat">CAMBIA TU VIDA</p>
+              <h1>
+                ¡Finanzas Controladas
+                <span>Metas Alcanzadas!</span>
+              </h1>
+              <p>
+                Te ayudamos a gestionar tus finanzas personales.
+                <br />
+                Administra tus ingresos, gastos y alcanza tus metas económicas.
+              </p>
+              <div id="botones">
+                <a
+                  href="#btnRegistrarme"
+                  id="btnRegistrarme"
+                  class="btnRegistrarme"
+                  aria-label="Ir a la página de registro"
+                  style="display: flex; gap: 10px"
+                >
+                  <img src="img/iconos/ingresar.svg" alt="" />
+                  Registrarme
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="seccionDos">
+        <div>
+          <h2>¿Quiénes somos?</h2>
+          <br />
+          <br />
+          <p>
+            Somos una aplicación web que te ayudará a tener el control total de
+            tus finanzas personales. <br /><br />Nuestro software está diseñado
+            para ofrecerte una visión clara y detallada de tus ingresos y
+            gastos, haciendo que gestionar tu dinero sea más sencillo y
+            eficiente. <br /><br />
+            Creemos que el éxito financiero comienza con el conocimiento, y
+            estamos comprometidos a brindarte las herramientas necesarias para
+            que alcances tus metas económicas.
+          </p>
+        </div>
+
+        <div>
+          <section id="collage">
+            <div><img src="img/1.webp" alt="Mujer" /></div>
+            <div id="imagenesCompartidas">
+              <img src="img/4.webp" alt="" />
+              <img src="img/5.webp" alt="" />
+            </div>
+            <div><img src="img/3.webp" alt="" /></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="contactenos">
+        <div>
+          <h2>¡Visitanos!</h2>
+          <section>
+            <div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4464717182477!2d-75.55340152404852!3d6.336167193653475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442f11a205b239%3A0xa3974aa926dbfac1!2sCesde%20sede%20norte!5e0!3m2!1ses-419!2sco!4v1731810542858!5m2!1ses-419!2sco"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div>
+              <p>cashmaster@gmail.com</p>
+              <p>PBX: (+57) 3046781557</p>
+              <p>Visitanos en nuestras redes sociales</p>
+              <div id="redesSociales">
+                <a class="m-2" href="#" target="_blank">
+                  <img src="img/iconos/instagram.svg" alt="icono instagram" />
+                </a>
+                <a class="m-2" href="#">
+                  <img src="img/iconos/gmail.svg" alt="icono gmail" />
+                </a>
+                <a class="m-2" href="#">
+                  <img src="img/iconos/whatsapp.svg" alt="icono whatsapp" />
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+      <p>Cash Master © Todos los derechos reservados 2024</p>
+    </footer>
+    <script src="index.js"></script>
+    <script>
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("menu");
+          menu.classList.toggle("hidden"); // Alterna la clase 'hidden' para mostrar/ocultar el menú
+        });
+    </script>
   </body>
 </html>

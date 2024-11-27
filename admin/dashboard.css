@@ -1,3 +1,7 @@
+* {
+  object-fit: contain;
+}
+
 body {
   background-color: #edf2fa;
   position: relative;
@@ -5,15 +9,17 @@ body {
 }
 
 #logo {
-  height: 40px;
+  width: 10%;
+  min-width: 100px;
 }
 
 #navBar {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: #7125cbbd;
   justify-content: space-between;
   padding: 10px;
+  color: white;
 }
 
 #navBar div {
@@ -25,73 +31,215 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 #navBar a {
   margin: 15px;
   padding: 5px;
 }
 
 #avatarUno {
-  border-radius: 100%;
-  height: 50px;
+  border-radius: 50%;
+  height: 60px;
+}
+
+main {
+  padding: 50px;
 }
 
 #seccionUno {
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: minmax(auto, 250px) minmax(auto, 50px) minmax(auto, 150px) minmax(auto, 370px) minmax(auto, 370px);
+  gap: 25px;
 }
 
 #seccionUnoDivUno {
-  margin-top: 2%;
-  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   padding: 20px;
-  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+  gap: 5px;
 }
 
-#fotoPerfil {
+#fotoUsuario1 {
   width: 60%;
-  border-radius: 100%;
-  margin-bottom: 15%;
+  border-radius: 50%;
+  max-width: 134px;
+}
+
+#seccionUnoDivUno h3 {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 #editar {
   width: 15%;
+  margin: 15px;
+  max-width: 25px;
 }
 
 #seccionUnoDivDos {
-  margin-top: 2%;
-  width: 60%;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   background-color: white;
-  padding: 2px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.btn-ingreso {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   border: none;
+}
+
+#seccionUnoDivDos h1 {
+  width: 100%;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+#iconos {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+#iconos>div {
+  padding: 25px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.btn-ingreso:hover {
-  background-color: #a1d6f9;
+#iconos div img {
+  display: block;
+  margin: auto;
 }
 
-
-
-#content {
-  width: 70%;
-  margin-right: 1rem;
+.btn-ingresarInformacion {
+  color: black;
+  padding: 5px 5px;
+  font-weight: 400;
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin-top: 10px;
 }
 
+.btn-ingresarInformacion:hover {
+  background-color: #7125cbbd;
+  color: white;
+}
 
-
-
-footer{
+#seccionDosDivUno {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-row-start: 2;
+  grid-row-end: 4;
   background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+}
+
+#seccionDosDivUno p {
+  color: rgba(92, 89, 89, 0.616);
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#seccionDosDivUno #saldo {
+  font-size: 2rem;
+  font-weight: normal;
+  color: black;
+  margin-top: 25px;
+}
+
+#seccionIngresos {
+  grid-row-start: 3;
+  grid-row-end: 6;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: none;
+}
+
+#seccionIngresos h2 {
+  width: 100%;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+#grafico {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  align-items: center;
+  display: flex;
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+}
+
+form label {
+  text-align: left;
+}
+
+form input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 !important;
+  margin-bottom: 25px !important;
+}
+
+/*
+0 HASTA 768 PX
+*/
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+
+  #seccionUno {
+    display: block;
+  }
+
+  section#seccionUno>div,
+  section#seccionUno>section {
+    margin-bottom: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  section#iconos {
+    flex-direction: column;
+  }
+
+  div#content {
+    overflow-x: scroll;
+  }
 }
