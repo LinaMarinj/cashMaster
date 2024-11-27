@@ -17,6 +17,8 @@ function htmlModalLogin() {
       <input class="swal2-input" type="text" id="correo" name="correo" placeholder="tucorreo@gmail.com" />
       <label for="contrasena">Contraseña:</label>
       <input class="swal2-input" type="password" id="contrasena" name="contrasena" placeholder="**********" />
+      <a href="#" onClick="abrirModalOlvidoContrasena();" >¿Olvidaste tu contraseña?</a>
+      <a href="#" onClick="abrirModalRegistro();">Registrarme</a>
     </form>
   `;
 }
@@ -62,7 +64,7 @@ function realizarLogin(result) {
     });
   } else {
     Swal.fire({
-      title: "El correo y/o la contraseña son incorrectos ",
+      title: "El correo y/o la contraseña son incorrectos",
       icon: "error",
     });
   }
@@ -140,18 +142,41 @@ function realizarRegistro(result) {
   });
 }
 
+function abrirModalRegistro() {
+  Swal.fire({
+    title: "Registrarme",
+    html: htmlModalRegistro(),
+    focusConfirm: false,
+    confirmButtonText: "Registrarme",
+    preConfirm: validarFormularioRegistro,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      realizarRegistro(result);
+    }
+  });
+}
+
 document.querySelectorAll(".btnRegistrarme").forEach((boton) => {
   boton.addEventListener("click", () => {
-    Swal.fire({
-      title: "Registrarme",
-      html: htmlModalRegistro(),
-      focusConfirm: false,
-      confirmButtonText: "Registrarme",
-      preConfirm: validarFormularioRegistro,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        realizarRegistro(result);
-      }
-    });
+    abrirModalRegistro();
   });
 });
+
+async function abrirModalOlvidoContrasena() {
+  const { value: accept } = await Swal.fire({
+    title: "Recuperar contraseña",
+    input: "email",
+    inputLabel: "Ingrese el correo de recuperación",
+    inputPlaceholder: "tucorreo@gmail.com",
+    confirmButtonText: `Continue&nbsp;<i class="fa fa-arrow-right"></i>`,
+    inputValidator: (value) => {
+      if (!value) {
+        return "Ingresa un correo de recuperación";
+      }
+    },
+  });
+
+  if (accept) {
+    Swal.fire("Hemos enviado un código de verificación a tu correo.");
+  }
+}

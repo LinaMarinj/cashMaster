@@ -32,7 +32,7 @@ header {
   flex-wrap: wrap;
 }
 
-#navBar img {
+#navBar #logo img {
   height: 90px;
   width: auto;
 }
