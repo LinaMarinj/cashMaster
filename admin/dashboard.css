@@ -31,6 +31,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 #navBar a {
   margin: 15px;
   padding: 5px;
@@ -49,7 +50,7 @@ main {
   display: grid;
   justify-content: center;
   grid-template-columns: 2fr 8fr;
-  grid-template-rows: minmax(auto, 250px) minmax(auto, 50px) minmax(auto, 150px) minmax(auto, 370px);
+  grid-template-rows: minmax(auto, 250px) minmax(auto, 50px) minmax(auto, 150px) minmax(auto, 370px) minmax(auto, 370px);
   gap: 25px;
 }
 
@@ -115,7 +116,7 @@ main {
   gap: 25px;
 }
 
-#iconos > div {
+#iconos>div {
   padding: 25px;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -163,7 +164,7 @@ main {
   margin-bottom: 5px;
 }
 
-#seccionDosDivUno #saldo{
+#seccionDosDivUno #saldo {
   font-size: 2rem;
   font-weight: normal;
   color: black;
@@ -172,7 +173,7 @@ main {
 
 #seccionIngresos {
   grid-row-start: 3;
-  grid-row-end: 5;
+  grid-row-end: 6;
   background-color: white;
   padding: 30px;
   border-radius: 10px;
@@ -186,11 +187,33 @@ main {
   font-size: 1.5rem;
 }
 
-#grafico{
+#grafico {
   grid-row-start: 4;
   grid-row-end: 5;
   align-items: center;
   display: flex;
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+}
+
+form label {
+  text-align: left;
+}
+
+form input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 !important;
+  margin-bottom: 25px !important;
 }
 
 /*
@@ -205,8 +228,8 @@ main {
     display: block;
   }
 
-  section#seccionUno > div,
-  section#seccionUno > section {
+  section#seccionUno>div,
+  section#seccionUno>section {
     margin-bottom: 15px;
     flex-direction: column;
     text-align: center;
