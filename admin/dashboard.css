@@ -216,6 +216,15 @@ form input {
   margin-bottom: 25px !important;
 }
 
+
+#btnAtras{
+background-color: #7125cbbd;
+}
+
+#btnDescargarPDF{
+  background-color: #7125cbbd;
+}
+
 /*
 0 HASTA 768 PX
 */

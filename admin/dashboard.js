@@ -9,110 +9,108 @@ let gastosTotales = []; // Inicializamos el array de gastos
 let objetoUsuario = {};
 let indexGastos = 0; // contador
 
-
 //este es el bloque de la estadistica
 const options = {
-    chart: {
-        height: "100%",
-        maxHeight: "215px",
-        maxWidth: "100%",
-        type: "area",
-        fontFamily: "Inter, sans-serif",
-        dropShadow: {
-            enabled: false,
-        },
-        toolbar: {
-            show: false,
-        },
+  chart: {
+    height: "100%",
+    maxHeight: "215px",
+    maxWidth: "100%",
+    type: "area",
+    fontFamily: "Inter, sans-serif",
+    dropShadow: {
+      enabled: false,
     },
-    tooltip: {
-        enabled: true,
-        x: {
-            show: false,
-        },
+    toolbar: {
+      show: false,
     },
-    fill: {
-        type: "gradient",
-        gradient: {
-            opacityFrom: 0.55,
-            opacityTo: 0,
-            shade: "#7125cbbd",
-            gradientToColors: ["#7125cbbd"],
-        },
+  },
+  tooltip: {
+    enabled: true,
+    x: {
+      show: false,
     },
-    dataLabels: {
-        enabled: false,
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      opacityFrom: 0.55,
+      opacityTo: 0,
+      shade: "#7125cbbd",
+      gradientToColors: ["#7125cbbd"],
     },
-    stroke: {
-        width: 6,
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: 6,
+  },
+  grid: {
+    show: false,
+    strokeDashArray: 4,
+    padding: {
+      left: 2,
+      right: 2,
+      top: 0,
     },
-    grid: {
-        show: false,
-        strokeDashArray: 4,
-        padding: {
-            left: 2,
-            right: 2,
-            top: 0,
-        },
+  },
+  series: [
+    {
+      name: "Movimientos",
+      data: arregloMovimientosGrafica,
+      color: "#7125cbbd",
     },
-    series: [
-        {
-            name: "Movimientos",
-            data: arregloMovimientosGrafica,
-            color: "#7125cbbd",
-        },
-    ],
-    xaxis: {
-        categories: arregloFechasMovimientosGrafica,
-        labels: {
-            show: false,
-        },
-        axisBorder: {
-            show: false,
-        },
-        axisTicks: {
-            show: false,
-        },
+  ],
+  xaxis: {
+    categories: arregloFechasMovimientosGrafica,
+    labels: {
+      show: false,
     },
-    yaxis: {
-        show: false,
+    axisBorder: {
+      show: false,
     },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    show: false,
+  },
 };
 
 let chart;
 
 if (
-    document.getElementById("area-chart") &&
-    typeof ApexCharts !== "undefined"
+  document.getElementById("area-chart") &&
+  typeof ApexCharts !== "undefined"
 ) {
-    chart = new ApexCharts(document.getElementById("area-chart"), options);
-    chart.render();
+  chart = new ApexCharts(document.getElementById("area-chart"), options);
+  chart.render();
 }
 //final de la estadistica
 
 function actualizarMensajeTabla(tbody) {
+  // Si el tbody no tiene filas (tr), agrega el mensaje vacío
+  if (tbody.children.length === 0) {
+    const trConMensajeVacio = document.createElement("tr");
+    trConMensajeVacio.classList.add("mensaje-vacio");
 
-    // Si el tbody no tiene filas (tr), agrega el mensaje vacío
-    if (tbody.children.length === 0) {
-        const trConMensajeVacio = document.createElement("tr");
-        trConMensajeVacio.classList.add("mensaje-vacio");
-
-        trConMensajeVacio.innerHTML = `
+    trConMensajeVacio.innerHTML = `
             <td colspan="4" class="text-center text-gray-500 py-[100px]">
                 No hay registros disponibles
             </td>
         `;
-        tbody.appendChild(trConMensajeVacio);
-    } else if (tbody.querySelector("tr.mensaje-vacio")) {
-        tbody.innerHTML = "";
-    }
+    tbody.appendChild(trConMensajeVacio);
+  } else if (tbody.querySelector("tr.mensaje-vacio")) {
+    tbody.innerHTML = "";
+  }
 }
 
 actualizarMensajeTabla(document.querySelector("#tablaIngresos tbody"));
 actualizarMensajeTabla(document.querySelector("#tablaGastos tbody"));
 
 function htmlModalIngreso() {
-    return `
+  return `
         <form action="">
             <label for="montoIngreso">Monto Ingreso:</label>
             <input class="swal2-input" type="number" id="montoIngreso" name="montoIngreso" placeholder="$100.000" />
@@ -141,61 +139,59 @@ function htmlModalIngreso() {
 }
 
 function validarFormularioIngreso() {
-    // Obtenemos los valores de los campos del formulario
-    const montoIngreso = document.getElementById("montoIngreso").value;
-    const fechaIngreso = document.getElementById("fechaIngreso").value;
-    const frecuencia = document.getElementById("frecuencia").value;
-    const categoria = document.getElementById("categoria").value;
+  // Obtenemos los valores de los campos del formulario
+  const montoIngreso = document.getElementById("montoIngreso").value;
+  const fechaIngreso = document.getElementById("fechaIngreso").value;
+  const frecuencia = document.getElementById("frecuencia").value;
+  const categoria = document.getElementById("categoria").value;
 
-    // Verifica que los valores no estén vacíos
-    if (!montoIngreso || !fechaIngreso || !frecuencia || !categoria) {
+  // Verifica que los valores no estén vacíos
+  if (!montoIngreso || !fechaIngreso || !frecuencia || !categoria) {
+    // Muestra un mensaje de error si hay campos vacíos y no guarda el ingreso
+    Swal.showValidationMessage("Por favor completa todos los campos");
+    return false;
+  }
 
-        // Muestra un mensaje de error si hay campos vacíos y no guarda el ingreso
-        Swal.showValidationMessage("Por favor completa todos los campos");
-        return false;
-    }
-
-    // Retorna un objeto con los valores del formulario si todo está correcto
-    return {
-        montoIngreso,
-        fechaIngreso,
-        frecuencia,
-        categoria,
-    };
+  // Retorna un objeto con los valores del formulario si todo está correcto
+  return {
+    montoIngreso,
+    fechaIngreso,
+    frecuencia,
+    categoria,
+  };
 }
 
 function guardarIngreso(result) {
-    // Obtenemos los valores del formulario
-    const montoIngreso = result.value.montoIngreso;
-    const fechaIngreso = result.value.fechaIngreso;
-    const frecuencia = result.value.frecuencia;
-    const categoria = result.value.categoria;
+  // Obtenemos los valores del formulario
+  const montoIngreso = result.value.montoIngreso;
+  const fechaIngreso = result.value.fechaIngreso;
+  const frecuencia = result.value.frecuencia;
+  const categoria = result.value.categoria;
 
-    // Incrementar contador de ingresos
-    indexIngresos++;
+  // Incrementar contador de ingresos
+  indexIngresos++;
 
-    // Crear objeto de ingreso
-    const objetoIngreso = {
-        idIngreso:indexIngresos,
-        montoIngreso,
-        fechaIngreso,
-        frecuencia,
-        categoria,
-    };
+  // Crear objeto de ingreso
+  const objetoIngreso = {
+    idIngreso: indexIngresos,
+    montoIngreso,
+    fechaIngreso,
+    frecuencia,
+    categoria,
+  };
 
-    // Guardar el objeto en el arreglo simulando una base de datos
-    ingresosTotales.push(objetoIngreso);
+  // Guardar el objeto en el arreglo simulando una base de datos
+  ingresosTotales.push(objetoIngreso);
 
+  actualizarMensajeTabla(document.querySelector("#tablaIngresos tbody"));
 
-    actualizarMensajeTabla(document.querySelector("#tablaIngresos tbody"));
+  const tbody = document.querySelector("#tablaIngresos tbody");
 
-    const tbody = document.querySelector("#tablaIngresos tbody");
+  // Crear una nueva fila
+  const newRow = document.createElement("tr");
 
-    // Crear una nueva fila
-    const newRow = document.createElement("tr");
-
-    // Agregar celdas a la fila
-    newRow.innerHTML = `
+  // Agregar celdas a la fila
+  newRow.innerHTML = `
         <td class="px-6 py-4 whitespace-nowrap">${indexIngresos}</td>
         <td class="px-6 py-4 whitespace-nowrap">${montoIngreso}</td>
         <td class="px-6 py-4 whitespace-nowrap">${fechaIngreso}</td>
@@ -203,47 +199,47 @@ function guardarIngreso(result) {
         <td class="px-6 py-4 whitespace-nowrap">${categoria}</td>
     `;
 
-    // Agregar la fila al tbody
-    tbody.appendChild(newRow);
+  // Agregar la fila al tbody
+  tbody.appendChild(newRow);
 
-    // Mostrar mensaje de éxito
-    Swal.fire({ title: "Ingreso Registrado", icon: "success", });
+  // Mostrar mensaje de éxito
+  Swal.fire({ title: "Ingreso Registrado", icon: "success" });
 
-    balance += parseInt(montoIngreso);
-    const formatoDePesoColombiano = new Intl.NumberFormat('es-CO', {
-        style: 'currency',
-        currency: 'COP',
-        minimumFractionDigits: 0,
-    }).format(balance);
+  balance += parseInt(montoIngreso);
+  const formatoDePesoColombiano = new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0,
+  }).format(balance);
 
-    arregloMovimientosGrafica.push(balance);
-    console.log(fechaIngreso);
-    arregloFechasMovimientosGrafica.push(fechaIngreso);
-    document.querySelector("#saldo").innerHTML = formatoDePesoColombiano;
-    document.getElementById("area-chart").innerHTML = "";
-    chart.render();
+  arregloMovimientosGrafica.push(balance);
+  console.log(fechaIngreso);
+  arregloFechasMovimientosGrafica.push(fechaIngreso);
+  document.querySelector("#saldo").innerHTML = formatoDePesoColombiano;
+  document.getElementById("area-chart").innerHTML = "";
+  chart.render();
 }
 
 function abrirModalIngreso() {
-    return Swal.fire({
-        title: "Nuevo Ingreso",
-        html: htmlModalIngreso(),
-        focusConfirm: false,
-        confirmButtonText: "Registrar Ingreso",
-        preConfirm: validarFormularioIngreso,
-    }).then((result) => {
-        if (result.isConfirmed) {
-            guardarIngreso(result);
-        }
-    });
+  return Swal.fire({
+    title: "Nuevo Ingreso",
+    html: htmlModalIngreso(),
+    focusConfirm: false,
+    confirmButtonText: "Registrar Ingreso",
+    preConfirm: validarFormularioIngreso,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      guardarIngreso(result);
+    }
+  });
 }
 
 document.querySelector("#btnNuevoIngreso").addEventListener("click", () => {
-    abrirModalIngreso();
+  abrirModalIngreso();
 });
 
 function htmlModalGasto() {
-    return `
+  return `
         <form action="">
             <label for="montoGasto">Monto Gasto:</label>
             <input class="swal2-input" type="number" id="montoGasto" name="montoGasto" placeholder="$500.000" />
@@ -265,52 +261,50 @@ function htmlModalGasto() {
 }
 
 function validarFormularioGasto() {
-    const montoGasto = document.getElementById("montoGasto").value;
-    const fechaGasto = document.getElementById("fechaGasto").value;
-    const categoria = document.getElementById("categoria").value;
+  const montoGasto = document.getElementById("montoGasto").value;
+  const fechaGasto = document.getElementById("fechaGasto").value;
+  const categoria = document.getElementById("categoria").value;
 
+  if (!montoGasto || !fechaGasto || !categoria) {
+    Swal.showValidationMessage("Por favor completa todos los campos");
+    return false;
+  }
 
-    if (!montoGasto || !fechaGasto || !categoria) {
-        Swal.showValidationMessage("Por favor completa todos los campos");
-        return false;
-    }
-
-    return {
-        montoGasto,
-        fechaGasto,
-        categoria,
-    };
+  return {
+    montoGasto,
+    fechaGasto,
+    categoria,
+  };
 }
 
 function guardarGasto(result) {
+  const montoGasto = result.value.montoGasto;
+  const fechaGasto = result.value.fechaGasto;
+  const categoria = result.value.categoria;
 
-    const montoGasto = result.value.montoGasto;
-    const fechaGasto = result.value.fechaGasto;
-    const categoria = result.value.categoria;
-     
-    // Incrementar contador de gastos
-     indexGastos++;
+  // Incrementar contador de gastos
+  indexGastos++;
 
-    // Crear objeto de gasto
-    const objetoGasto = {
-        idGasto: indexGastos,
-        montoGasto,
-        fechaGasto,
-        categoria,
-    };
+  // Crear objeto de gasto
+  const objetoGasto = {
+    idGasto: indexGastos,
+    montoGasto,
+    fechaGasto,
+    categoria,
+  };
 
-    // Guardar el objeto en el arreglo simulando una base de datos
-    gastosTotales.push(objetoGasto);
+  // Guardar el objeto en el arreglo simulando una base de datos
+  gastosTotales.push(objetoGasto);
 
-    actualizarMensajeTabla(document.querySelector("#tablaGastos tbody"));
+  actualizarMensajeTabla(document.querySelector("#tablaGastos tbody"));
 
-    const tbody = document.querySelector("#tablaGastos tbody");
+  const tbody = document.querySelector("#tablaGastos tbody");
 
-    // Crear una nueva fila
-    const newRow = document.createElement("tr");
+  // Crear una nueva fila
+  const newRow = document.createElement("tr");
 
-    // Agregar celdas a la fila
-    newRow.innerHTML = `
+  // Agregar celdas a la fila
+  newRow.innerHTML = `
 <td class="px-6 py-4 whitespace-nowrap">${indexGastos}</td>
 <td class="flex items-center">
 <div class="px-6 py-4 whitespace-nowrap">${montoGasto}</div>
@@ -319,101 +313,118 @@ function guardarGasto(result) {
 <td class="px-6 py-4 whitespace-nowrap">${categoria}</td>
 `;
 
-    // Agregar la fila al tbody
-    tbody.appendChild(newRow);
+  // Agregar la fila al tbody
+  tbody.appendChild(newRow);
 
-    Swal.fire({
-        title: "Gasto Registrado",
-        icon: "success",
-    });
+  Swal.fire({
+    title: "Gasto Registrado",
+    icon: "success",
+  });
 
-    balance -= parseInt(montoGasto);
-    const formatoDePesoColombiano = new Intl.NumberFormat('es-CO', {
-        style: 'currency',
-        currency: 'COP',
-        minimumFractionDigits: 0,
-    }).format(balance);
+  balance -= parseInt(montoGasto);
+  const formatoDePesoColombiano = new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0,
+  }).format(balance);
 
-    arregloMovimientosGrafica.push(balance);
-    arregloFechasMovimientosGrafica.push(fechaGasto);
-    document.querySelector("#saldo").innerHTML = formatoDePesoColombiano;
-    document.getElementById("area-chart").innerHTML = "";
-    chart.render();
+  arregloMovimientosGrafica.push(balance);
+  arregloFechasMovimientosGrafica.push(fechaGasto);
+  document.querySelector("#saldo").innerHTML = formatoDePesoColombiano;
+  document.getElementById("area-chart").innerHTML = "";
+  chart.render();
 }
 
 document.querySelector("#btnNuevoGasto").addEventListener("click", () => {
-    Swal.fire({
-        title: "Nuevo Gasto",
-        html: htmlModalGasto(),
-        focusConfirm: false,
-        confirmButtonText: "Registrar Gasto",
-        preConfirm: validarFormularioGasto,
-    }).then((result) => { // Despues
-        if (result.isConfirmed) {
-            guardarGasto(result);
-        }
-    });
+  Swal.fire({
+    title: "Nuevo Gasto",
+    html: htmlModalGasto(),
+    focusConfirm: false,
+    confirmButtonText: "Registrar Gasto",
+    preConfirm: validarFormularioGasto,
+  }).then((result) => {
+    // Despues
+    if (result.isConfirmed) {
+      guardarGasto(result);
+    }
+  });
 });
 
 // Se crea ventana emergente
 const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-    },
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  },
 });
 
 // evento de clic al botón de reporte
 document.getElementById("btnGenerarReporte").addEventListener("click", () => {
-    // Mostrar el Toast
-    Toast.fire({
-        icon: "success",
-        title: "Preparando Reporte",
-    });
+  // Mostrar el Toast
+  Toast.fire({
+    icon: "success",
+    title: "Preparando Reporte",
+  });
 
-    // abrir el Swal de "Balance Mensual"
-    setTimeout(() => {
-        let totalGastos = 0;
-        let totalIngresos = 0;
-        gastosTotales.forEach((gasto) =>
-            totalGastos += parseFloat(gasto.montoGasto));
-        ingresosTotales.forEach((ingreso) =>
-            totalIngresos += parseFloat(ingreso.montoIngreso));
+  // abrir el Swal de "Balance Mensual"
+  setTimeout(() => {
+    let totalGastos = 0;
+    let totalIngresos = 0;
+    gastosTotales.forEach(
+      (gasto) => (totalGastos += parseFloat(gasto.montoGasto))
+    );
+    ingresosTotales.forEach(
+      (ingreso) => (totalIngresos += parseFloat(ingreso.montoIngreso))
+    );
 
-        Swal.fire({
-            title: "Balance Mensual",
-            html:
-                '<div id="modalContent">' +
-                "<p>Tus ingresos mensuales totales son: </p>" + totalIngresos +
-                "<p>Tus gastos mensuales totales son: </p>" + totalGastos +
-                "<p>Tu balance mensual es: </p>" + balance +
-                "<p>¡Tus finanzas están muy bien! ¡FELICIDADES!</p>" +
-                "</div>" +
-                '<button id="btnDescargarPDF" class="swal2-confirm swal2-styled">Descargar PDF</button>' + // Botón para descargar PDF
-                '<button id="btnAtras" class="swal2-cancel swal2-styled" style="margin-left: 10px;">Atrás</button>',
-            showConfirmButton: false, // Deshabilitar el botón de confirmación
-            didOpen: () => {
-                // Agregar el evento de clic para descargar el PDF
-                document
-                    .getElementById("btnDescargarPDF")
-                    .addEventListener("click", () => {
-                        // Seleccionar el contenido que se convertirá en PDF
-                        const modalContent = document.getElementById("modalContent");
+    Swal.fire({
+      title: "Balance Mensual",
+      html:
+        '<div id="modalContent">' +
+        "<p>Tus ingresos mensuales son: </p>" +
+        totalIngresos +
+        "<p>Tus gastos mensuales son: </p>" +
+        totalGastos +
+        "<p>Tu balance mensual es: </p>" +
+        balance +
+        "<p>¡Tus finanzas están muy bien! ¡FELICIDADES!</p>" +
+        "</div>" +
+        '<button id="btnDescargarPDF" class="swal2-confirm swal2-styled">Descargar PDF</button>' + // Botón para descargar PDF
+        '<button id="btnAtras" class="swal2-cancel swal2-styled" style="margin-left: 10px;">Atrás</button>',
+      showConfirmButton: false, // Deshabilitar el botón de confirmación
+      didOpen: () => {
+        // Agregar el evento de clic para descargar el PDF
+        document
+          .getElementById("btnDescargarPDF")
+          .addEventListener("click", () => {
+            // Seleccionar el contenido que se convertirá en PDF
+            const modalContent = document.getElementById("modalContent");
 
-                        // Usar html2pdf para generar el PDF
-                        html2pdf().from(modalContent).save("Balance_Mensual.pdf");
-                    });
+            const opt = {
+              margin: 1, // márgenes en pulgadas
+              filename: "Balance_Mensual.pdf",
+              image: { type: "jpeg", quality: 0.98 },
+              html2canvas: { scale: 2 }, // aumenta la calidad de la imagen
+              jsPDF: { unit: "in", format: "letter", orientation: "portrait" }, // tamaño y formato de la página
+              pagebreak: { mode: ["avoid-all"] }, // evitar cortes entre elementos
+            };
 
-                // Agregar el evento de clic para el botón "Atrás" que cerrará el modal
-                document.getElementById("btnAtras").addEventListener("click", () => {
-                    Swal.close(); // Cerrar la alerta de SweetAlert2
-                });
-            },
+            modalContent.style.textAlign = "center";
+
+            // Usar html2pdf para generar el PDF
+            html2pdf().from(modalContent).set(opt).save("Balance_Mensual.pdf");
+          });
+
+        // Agregar el evento de clic para el botón "Atrás" que cerrará el modal
+        document.getElementById("btnAtras").addEventListener("click", () => {
+          Swal.close(); // Cerrar la alerta de SweetAlert2
         });
-    }, 3000); // Mismo tiempo que el timer del Toast
+      },
+    });
+  }, 3000); // Mismo tiempo que el timer del Toast
 });
